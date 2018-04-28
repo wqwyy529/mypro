@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+*{ margin:0; padding:0;}
+table{border-collapse:collapse;}
+a{color:#335884; text-decoration:none;}
+a:hover{color:#600}
+#header{ clear:both; position:relative; margin:0 auto; margin-top:15px; width:947px; height:116px; border:1px solid #dfdfdf; background:url(../images/topbg.gif) repeat-x;}
+#top_login{clear:both; position:relative; font-size:14px;width:1200px; height:30px; margin:5px auto 0; border:1px solid #dfdfdf; background:url(../images/topbg.gif) repeat-x;}
+	#top_login ul{height:30px;float:right;}
+	#top_login ul li{
+		  	float:left; 
+			list-style:none;
+			width:80px; height:20px; 
+			margin-top:8px;
+			font-weight:bold;
+			text-align:center; 
+			line-height:20px;
+		}
+		a.hr:link{ color:#366}
+		a.hr:visited{ color: #993200 }
+		a.hr:hover{ font-size:16px; color:#600}
+		a.hr:active{ color: #F00}
+#container{width:1000px; margin:20px auto 0; position:relative;}
+	.tab{margin: 20px 20px; float:left;}
+	#msg{}
+	#comment{margin-top:20px;}
+#turnpage{float:left; height:30px; width:100%; font-family:arial; font-size:14px; font-weight:bold;margin-left:20px;}

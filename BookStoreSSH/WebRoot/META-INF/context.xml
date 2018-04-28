@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+  <Resource name="jdbc/OracleBookJndi" auth="Container"  type="javax.sql.DataSource" 
+            username="wq"  password="123"   driverClassName="oracle.jdbc.driver.OracleDriver"
+            url="jdbc:oracle:thin:@wuqun-PC:1521:orcl"         
+            maxActive="100" maxIdle="30" maxWait="10000"/>
+</Context>
+

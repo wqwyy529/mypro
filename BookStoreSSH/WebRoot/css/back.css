@@ -1,0 +1,57 @@
+@CHARSET "UTF-8";
+/* CSS Document */
+*{ margin:0; padding:0;}
+a{text-decoration:none;}
+table{border-collapse:collapse;}
+a:hover{color:#600}
+li{list-style:none}
+
+#top_login{clear:both; position:relative;font-size:14px;width:1200px; height:30px; margin:5px auto 0; border:1px solid #dfdfdf; background:url(../images/topbg.gif) repeat-x;}
+	#top_login ul{height:30px;float:right;}
+	#top_login ul li{float:left; list-style:none;width:80px; height:20px; margin-top:8px;
+			font-weight:bold;text-align:center; line-height:20px;}
+		#top_login ul li a:link{ color:#366}
+		#top_login ul li a:visited{ color: #993200 }
+		#top_login ul li a:hover{ font-size:18px; color:#600}
+		#top_login ul li a:active{ color: #F00}
+#menu{margin:20px auto 0;height:30px; width:1200px;}
+	#menu ul{margin-left:50px;height:30px;float:left;}
+	#menu ul li{float:left; list-style:none;width:150px; height:25px; margin-left:30px;
+			background-color:#9F9FD0;font-weight:bold;text-align:center; line-height:30px;}
+		#menu ul li a:link{ color:#366}
+		#menu ul li a:visited{ color: #993200 }
+		#menu ul li a:hover{ font-size:20px; color:#600}
+		#menu ul li a:active{ color: #F00}
+	#menu li ul {line-height: 27px; list-style-type: none;text-align:left;
+ 					left: -999em; width: 180px; position: absolute;}
+	#menu li ul li{float: left; width: 180px; background: #F6F6F6; }
+	#menu li ul a{display: block; width: 180px;w\idth: 156px;text-align:left;padding-left:24px;}
+	#menu li ul a:link {color:#666; text-decoration:none;}
+	#menu li ul a:visited {color:#666;text-decoration:none;}
+	#menu li ul a:hover {color:#F3F3F3;text-decoration:none;font-weight:normal;background:#C00;}
+	#menu li:hover ul {left: auto;}	
+#container{clear:both; position:relative;margin:10px auto 0;width:1200px;}
+ 	#main{}
+ 	.p{height:30px;color:#993200;font-weight:bold}
+ 	#type{float:left;margin-left:150px;width:1000px;}
+		#st {line-height:24px; list-style-type: none;width:300px;font-size:16px;float:left;}
+		#st a { display: block; width: 80px; text-align:center;}
+		#st a:link { color:#666; text-decoration:none;}
+		#st a:visited { color:#666;text-decoration:none;}
+		#st a:hover { color:#FFF;text-decoration:none;font-weight:bold;}
+		#st li { float: left; width: 80px; background: #7800F0;color:#FCF}
+		#st li a:hover{}
+		#st li a.on{ background:#999;}
+		#st li ul { line-height: 27px; list-style-type: none;text-align:left;
+		 		left: -999em; width: 100px; position: absolute; }
+		#st li ul li{ float: left; width: 120px; background: #F6F6F6;font-size:14px;color:#AA1F55}
+		#st li ul a{ display: block;width: 95px;text-align:left;padding-left:24px;}
+		#st li ul a:link { color:#666; text-decoration:none;}
+		#st li ul a:visited { color:#666;text-decoration:none;}
+		#st li ul a:hover { color:#F3F3F3;text-decoration:none;font-weight:normal; background:#C00;}
+		#st li:hover ul { left: auto;}
+		#st li.sfhover ul { left: auto;}
+		#inp{float:left;magin-left:300px;font-weight:bold;}
+			#inp .sub{width:60px;height:25px;font-weight:bold;font-size:14px;}
+	#result{width:1200px;margin:40px auto 0;}
+ 	#turnpage{margin:10px 200px;}

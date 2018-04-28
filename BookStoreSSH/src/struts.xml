@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.i18n.encoding" value="gbk"></constant>
+<package name="BookStoreSSH" extends="struts-default">
+
+	<action name="user_*" class="userAction" method="{1}">
+		<result name="loginOK" type="chain">main_bookList</result>
+		<result name="loginFail">/main/login.jsp</result>
+		<result name="logoutOk" type="redirectAction">main_bookList</result>
+		<result name="regOK">/main/login.jsp</result>
+		<result name="regFail">/main/register.jsp</result>
+		<result name="allUserOK">/back/AllUser.jsp</result>
+		<result name="userInfoOK">/main/userInfo.jsp</result>
+		<result name="userInfoFail">/error.jsp</result>
+		<result name="deletUserOK" type="chain">main_allUser</result>
+		<result name="deletUserFail">/error.jsp</result>
+		<result name="updateUserOK">/main/userInfo.jsp</result>
+		<result name="updateUserFail">/error.jsp</result>
+	</action>
+	
+	<action name="main_*" class="mainAction" method="{1}">
+		<result name="bklistOK">/main/bookList.jsp</result>
+		<result name="bklistFail">/error.jsp</result>
+		<result name="bkDetailOK">/main/bookDetail.jsp</result>
+		<result name="bkDetailFail">/error.jsp</result>
+		<result name="shopAddOK" type="chain">main_shopCart</result>
+		<result name="shopCartOK">/main/ShopCart.jsp</result>
+		<result name="shopAddFail">/main/login.jsp</result>
+		<result name="removeBookOK" type="chain">main_shopCart</result>
+		<result name="makeOrderOK">/main/makeOrder.jsp</result>
+		<result name="makeOrderFail">/error.jsp</result>
+		<result name="confirmBuyInfoOK">/main/checkOut.jsp</result>
+		<result name="confirmBuyInfoFail">/error.jsp</result>
+		<result name="checkOutOK">/main/checkOut.jsp</result>
+		<result name="checkOutFail">/error.jsp</result>
+	</action>
+	
+	<action name="back_*" class="backAction" method="{1}">
+		<result name="addBookOK">/back/AddBook.jsp</result>
+		<result name="allBookOK">/back/AllBook.jsp</result>
+		<result name="allBookFail">/error.jsp</result>
+		<result name="updateBookOK">/back/UpdateBook.jsp</result>
+		<result name="updateBookFail">/error.jsp</result>
+		<result name="updateBookSubOK">/back/UpdateResult.jsp</result>
+		<result name="deletBookOK" type="chain">back_allBook</result>
+		<result name="deletBookFail">/error.jsp</result>
+		<result name="buyInfoOK">/back/BuyInfo.jsp</result>
+		<result name="buyInfoFail">/error.jsp</result>
+	</action>
+
+	 <action name="imgAction" class="imgAction">
+	     	 <result type="stream">
+               <param name="contentType">application/octet-stream</param>
+               <param name="inputName">inputStream</param>              
+               <param name="bufferSize">4096</param>
+           </result>
+	 </action>
+</package>
+</struts>    

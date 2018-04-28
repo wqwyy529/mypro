@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:context="http://www.springframework.org/schema/context"
+             xmlns:aop="http://www.springframework.org/schema/aop"
+             xmlns:tx="http://www.springframework.org/schema/tx"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+                     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                     http://www.springframework.org/schema/context
+                     http://www.springframework.org/schema/context/spring-context-3.0.xsd
+                     http://www.springframework.org/schema/aop
+                     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+                     http://www.springframework.org/schema/tx
+                     http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocation"
+			value="classpath:hibernate.cfg.xml">
+		</property>
+	</bean>
+	
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>			
+			<tx:method name="buy*" propagation="REQUIRED" />						
+			<tx:method name="*" propagation="REQUIRED" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+	
+	<aop:config>
+		<aop:pointcut id="serviceMethod" expression="execution(* com.icss.bk.biz.*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethod" />
+	</aop:config>
+	
+	<bean id="bookDao" class="com.icss.bk.dao.impl.BookHibDao" >		
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>		
+	
+	<bean id="userDao" class="com.icss.bk.dao.impl.UserHibDao" >		
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>		
+	
+	<bean id="bookBiz" class="com.icss.bk.biz.BookBiz">
+		<property name="bookDao" ref="bookDao" />
+	</bean>
+	
+	<bean id="userBiz" class="com.icss.bk.biz.UserBiz">	
+		<property name="userDao" ref="userDao" />
+	</bean>	
+	
+	<bean id="userAction" class="com.icss.bk.ctl.UserAction" scope="prototype">
+		<property name="userBiz" ref="userBiz"></property>		
+	</bean>		
+	
+	<bean id="mainAction" class="com.icss.bk.ctl.MainAction" scope="prototype">
+		<property name="bookBiz" ref="bookBiz"></property>
+		<property name="userBiz" ref="userBiz"></property>		
+	</bean>	
+	
+	<bean id="backAction" class="com.icss.bk.ctl.BackAction" scope="prototype">
+		<property name="bookBiz" ref="bookBiz"></property>		
+		<property name="userBiz" ref="userBiz"></property>		
+	</bean>
+	
+	<bean id="imgAction" class="com.icss.bk.ctl.ImgAction" scope="prototype"> 
+		<property name="bookBiz" ref="bookBiz"></property>
+	</bean>
+	
+	<bean id="validUnameAction" class="com.icss.bk.ctl.ValidUnameAction" scope="prototype"> 
+		<property name="userBiz" ref="userBiz"></property>
+	</bean>
+</beans>
